@@ -1,6 +1,6 @@
 # Redirect to HTTPS
 
-This [Chassis extension](https://docs.chassis.io/en/latest/extend/) adds an [Nginx](https://www.nginx.com/) rule to redirect unsecured `http` URLs to their `https` equivalent.
+This [Chassis extension](https://docs.chassis.io/en/latest/extend/) adds an [Nginx](https://www.nginx.com/) rule within your Chassis virtual machine to redirect unsecured `http` URLs to their `https` equivalent.
 
 It is designed to be used in conjunction with the ["chassis_openssl" extension](https://github.com/Chassis/chassis_openssl), which adds SSL support to your Chassis box.
 
