@@ -4,5 +4,6 @@ location ~* \.(jpe?g|gif|png)$ {
 }
 
 location @productionImages {
-  rewrite . <%= @productionMediaHost %>$request_uri;
+  # rewrite ^<%= @vm_host %>(.*)$ <%= @fallback_host %>$1 last;
+  rewrite . <%= @fallback_host %>$request_uri;
 }

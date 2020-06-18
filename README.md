@@ -1,4 +1,4 @@
-# Fall Back to Production Media
+# Media Fallback
 
 This [Chassis extension](https://docs.chassis.io/en/latest/extend/) adds an [Nginx](https://www.nginx.com/) rule within your Chassis virtual machine to fall back to production URLs for any local media request which fails with a "404 not found" error. This allows you to run a fully functional virtual machine with a much smaller backup of the `uploads/` folder than would normally be necessary, because any image which is not available locally within the VM can then be requested from the live site instead.
 
