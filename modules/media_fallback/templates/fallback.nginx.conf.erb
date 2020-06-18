@@ -1,9 +1,12 @@
-# For any local jpg, jpeg, gif, or png request that 404s, try prod instead.
-location ~* \.(jpe?g|gif|png)$ {
-  try_files $uri @productionImages =404;
+# Fall back to a production URL for any local jpg, jpeg, gif, or png which 404s.
+location /content/uploads/ {
+	# Nesting required to take priority over "location /content/" in Chassis conf.
+	location ~* \.(jpe?g|gif|png)$ {
+		try_files $uri @productionImages;
+	}
 }
 
 location @productionImages {
-  # rewrite ^<%= @vm_host %>(.*)$ <%= @fallback_host %>$1 last;
-  rewrite . <%= @fallback_host %>$request_uri;
+	rewrite ^/content/(.*)$ <%= @fallback_host %>/$1 break;
+	return 403;
 }
