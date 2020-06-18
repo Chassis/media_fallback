@@ -1,4 +1,0 @@
-# Require HTTPS for all URIs.
-if ($scheme = http) {
-	return 302 https://$server_name$request_uri;
-}

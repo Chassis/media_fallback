@@ -1,0 +1,8 @@
+# For any local jpg, jpeg, gif, or png request that 404s, try prod instead.
+location ~* \.(jpe?g|gif|png)$ {
+  try_files $uri @productionImages =404;
+}
+
+location @productionImages {
+  rewrite . <%= @productionMediaHost %>$request_uri;
+}
