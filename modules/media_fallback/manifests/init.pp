@@ -7,8 +7,6 @@ class media_fallback (
 		default  => 'absent',
 	}
 
-	notify { "Present: ${present_or_absent}": }
-
 	$fallback_host = $config['media_fallback'];
 
 	file { "/etc/nginx/sites-available/${::fqdn}.d/media_fallback":
