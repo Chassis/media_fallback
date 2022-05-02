@@ -1,7 +1,7 @@
 # Fall back to a production URL for any local jpg, jpeg, gif, or png which 404s.
 location /content/uploads/ {
 	# Nesting required to take priority over "location /content/" in Chassis conf.
-	location ~* \.(jpe?g|gif|png)$ {
+	location ~* \.(jpe?g|gif|png|svg|webp)$ {
 		try_files $uri @productionImages;
 	}
 }
